@@ -32,7 +32,9 @@ Volumes are baked into a OcclusionMask texture which I can sample in any shader 
 I will use this to easily make it so shader wet-ness effects (like animated water dripping on rocks) or snow on the ground doesn't appear in places they shouldnt (like inside houses, caves, etc).  What's cool is that it obeys depth properly, so if we're looking "through" a occlusion mesh, only the pixels within the volume are masked, pixels "behind" the mask but off in the distance are not affected (as they would be if it was a simple screen space effect!)
 
 More info of me trying to work through this problem on reddit: 
-https://www.reddit.com/r/Unity3D/comments/8f2stm/how_would_you_go_about_making_a_shader_that_color/?st=jidwwnr0&sh=c9ff5f64----
+https://www.reddit.com/r/Unity3D/comments/8f2stm/how_would_you_go_about_making_a_shader_that_color/?st=jidwwnr0&sh=c9ff5f64
+
+----
 
 Do whatever you want with this code.
 Have questions? 
