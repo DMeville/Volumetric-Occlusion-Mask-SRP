@@ -4,7 +4,6 @@
 
 ![screenshot](https://i.imgur.com/GQkoxMy.gif)
 ![screenshot](https://i.imgur.com/6XeEZDS.gif)
-[img]https://i.imgur.com/GQkoxMy.gif[/img]
 
 Using Unity 2018.2.0b7
 Package Manager: Lightweight Render Pipeline 1.1.10-preview and Post-processing 2.0.7-preview 
