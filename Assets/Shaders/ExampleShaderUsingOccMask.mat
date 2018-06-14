@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: ExampleShaderUsingOccMask
+  m_Shader: {fileID: 4800000, guid: 5ad19496de83b1c429dffe75f89deb36, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _TextureSample0:
+        m_Texture: {fileID: 2800000, guid: 0fbf71c3ab595634cbc9bae52b51058a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample1:
+        m_Texture: {fileID: 2800000, guid: 930a94908d5ec1d4784a57b8038f2f8b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample2:
+        m_Texture: {fileID: 2800000, guid: 4fe5d75cb4223a64199447990d11b968, type: 3}
+        m_Scale: {x: 40.31, y: 26.49}
+        m_Offset: {x: 0, y: 26.14}
+    - _TopTexture0:
+        m_Texture: {fileID: 2800000, guid: 0fbf71c3ab595634cbc9bae52b51058a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TopTexture1:
+        m_Texture: {fileID: 2800000, guid: 930a94908d5ec1d4784a57b8038f2f8b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 4.46}
+    - _WaterNormal:
+        m_Texture: {fileID: 2800000, guid: 930a94908d5ec1d4784a57b8038f2f8b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Emission: 0
+    - _Float1: 4.37
+    - _Float2: 5.68
+    - _Metallic: 0.07
+    - _Metallic2: 0.18
+    - _Smoothness: 1.28
+    - _Smoothness2: 1.93
+    m_Colors:
+    - _ScrollSpeed: {r: 0, g: 0.84, b: 0, a: 0}
+    - _UpColour: {r: 1, g: 1, b: 1, a: 0}
+    - _WetColor: {r: 1, g: 1, b: 1, a: 0}

@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "com.unity.ads": "exclude",
+    "com.unity.analytics": "exclude",
+    "com.unity.postprocessing": "2.0.7-preview",
+    "com.unity.purchasing": "exclude",
+    "com.unity.render-pipelines.lightweight": "1.1.10-preview",
+    "com.unity.standardevents": "exclude"
+  }
+}
