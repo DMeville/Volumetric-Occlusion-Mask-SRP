@@ -3,6 +3,7 @@
 ## WANT TO BLOCK STUFF FROM GETTING WET?! I GOTCHU FAM
 
 ![screenshot](https://i.imgur.com/GQkoxMy.gif)
+![screenshot](https://i.imgur.com/Jd7yXJ4.gif)
 ![screenshot](https://i.imgur.com/6XeEZDS.gif)
 
 Using Unity 2018.2.0b7
