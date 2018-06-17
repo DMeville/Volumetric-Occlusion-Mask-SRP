@@ -11,6 +11,7 @@ Most of the code is in LightweightPipeline.Render, be sure to replace the versio
 Occluder objects need a convex closed mesh rendered on them, and a Occluder behaviour on them.  
 
 Access the global shader texture _CustomOcclusionMask to use the mask in an objects shader (to mask it's colour or whatever) or use the incldued CustomOcclusionMask.Asset Amplify Shader Function with ASE.
+Amplify Shader Editor 1.5.3 seems to not render shadows on custom LWRP shaders. To fix this open the shader in the shader graph, and under the Pass tab on the left bar, and an Additional Pragma "multi_compile _ _SHADOWS_ENABLED" without quotes and save.
 
 There is also an included ShowOcclusionDepth post process that shows the mask
 

@@ -3,7 +3,6 @@ Shader "OcclusionBlocker"
 {
 	Properties
 	{
-		_Color("Color", Color) = (0,0,0,0)
 	}
 	SubShader
 	{
@@ -24,6 +23,7 @@ Shader "OcclusionBlocker"
 			Blend Off
 			ZTest Always
 			ZWrite Off
+			ZClip Off
 			Cull Front //we want to show the back depths so we cull the frontfaces here
 
 			HLSLPROGRAM
@@ -63,9 +63,31 @@ Shader "OcclusionBlocker"
 				return o;
 			}
 
-			half4 frag (GraphVertexOutput IN ) : SV_Target
+			half4 frag (GraphVertexOutput IN, half ase_vface :VFACE ) : SV_Target
 		    {
-				return IN.clipPos.z;
+				
+				//how can we do this in one pass?
+				//need to write backface depth to one channel, and frontface to another
+				//but
+				//float3 temp_cast_0 = (ase_vface).xxx; //gets the face direction, should be able to use this to
+				//write to r or g channel at once, instead of doing two passes
+				//maybe? idk
+				
+				//if(ase_vface > 0){
+				//	//return (0, 1,1,1);
+				//	//return (IN.clipPos.z, 0, 0, 1);
+				//} else {
+				//	//return (1,0,1,1);
+				//	//return (0, IN.clipPos.z, 1 ,1);
+				//}
+
+				
+				//return half4(1,1,0,0); //*ase_vface;
+
+				//return (ase_vface + 1)/2;
+				return half4(IN.clipPos.z, 1.0, 0.0, 1.0);
+
+				//return (IN.clipPos.z, 1 ,0);
 
 		    	UNITY_SETUP_INSTANCE_ID(IN);
 
@@ -130,8 +152,8 @@ Shader "OcclusionBlocker"
 
 			half4 frag (GraphVertexOutput IN ) : SV_Target
 		    {
-				return IN.clipPos.z;
-
+			//	return (IN.clipPos.z, 1, 0);
+				return half4(IN.clipPos.z, 0.0, 0.0, 1.0);
 		    	UNITY_SETUP_INSTANCE_ID(IN);
 
 				float Alpha = 1;

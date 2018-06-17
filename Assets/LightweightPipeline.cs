@@ -598,8 +598,8 @@ namespace UnityEngine.Experimental.Rendering.LightweightPipeline
                 //SetRenderTarget(cmd, m_CustomOcclusionTemp1, m_CustomOcclusionTemp2, ClearFlag.All);
                 cmd.SetRenderTarget(m_CustomOcclusionTemp1);
                 cmd.ClearRenderTarget(true, true, Color.black);
-                cmd.SetRenderTarget(m_CustomOcclusionTemp2);
-                cmd.ClearRenderTarget(true, true, Color.black);
+                cmd.SetRenderTarget(m_CustomOcclusionTemp2); 
+                cmd.ClearRenderTarget(true, true, Color.white);
 
                 context.ExecuteCommandBuffer(cmd);
                 CommandBufferPool.Release(cmd);
