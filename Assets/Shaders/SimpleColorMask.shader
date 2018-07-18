@@ -55,7 +55,8 @@ Shader "SimpleColorMask"
 			#include "CoreRP/ShaderLibrary/Color.hlsl"
 			#include "CoreRP/ShaderLibrary/UnityInstancing.hlsl"
 			#include "ShaderGraphLibrary/Functions.hlsl"
-			
+			#pragma multi_compile _ _SHADOWS_ENABLED
+
 			uniform float4 _UnmaskedColor;
 			uniform float4 _MaskedColor;
 			uniform sampler2D _CustomOcclusionMask;
@@ -129,7 +130,8 @@ Shader "SimpleColorMask"
 
 				float4 unityObjectToClipPos2_g1 = TransformWorldToHClip(TransformObjectToWorld(IN.ase_texcoord7.xyz));
 				float4 computeScreenPos5_g1 = ComputeScreenPos( unityObjectToClipPos2_g1 );
-				float4 lerpResult4 = lerp( _UnmaskedColor , _MaskedColor , tex2D( _CustomOcclusionMask, ( computeScreenPos5_g1 / (unityObjectToClipPos2_g1).w ).xy ).r);
+				float clampResult7_g1 = clamp( tex2D( _CustomOcclusionMask, ( computeScreenPos5_g1 / (unityObjectToClipPos2_g1).w ).xy ).r , 0.0 , 1.0 );
+				float4 lerpResult4 = lerp( _UnmaskedColor , _MaskedColor , clampResult7_g1);
 				
 				
 				float3 Specular = float3(0, 0, 0);
@@ -204,7 +206,8 @@ Shader "SimpleColorMask"
 		
 			#include "LWRP/ShaderLibrary/Core.hlsl"
 			#include "LWRP/ShaderLibrary/Lighting.hlsl"
-			
+			#pragma multi_compile _ _SHADOWS_ENABLED
+
 			uniform float4 _ShadowBias;
 			uniform float3 _LightDirection;
 								
@@ -290,7 +293,8 @@ Shader "SimpleColorMask"
 
 			#include "LWRP/ShaderLibrary/Core.hlsl"
 			#include "LWRP/ShaderLibrary/Lighting.hlsl"
-			
+			#pragma multi_compile _ _SHADOWS_ENABLED
+
 			
 			struct GraphVertexInput
 			{
@@ -371,7 +375,7 @@ Shader "SimpleColorMask"
 }
 /*ASEBEGIN
 Version=15301
--1199;23;1198;1536;756.8573;1015.352;1.192752;True;False
+-1193;135;1186;1004;749.7008;698.08;1.192752;True;False
 Node;AmplifyShaderEditor.ColorNode;6;-287.7444,-525.5511;Float;False;Property;_UnmaskedColor;Unmasked Color;3;0;Create;True;0;0;False;0;0,0,0,0;0.1490071,1,0,0;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.ColorNode;5;-284.159,-349.8611;Float;False;Property;_MaskedColor;Masked Color;2;0;Create;True;0;0;False;0;0,0,0,0;1,1,1,0;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.FunctionNode;3;-338.4709,-168.2565;Float;False;CustomOcclusionMask;0;;1;fb0d50a56f6519849b6916e4d4cf6f28;0;0;1;FLOAT;0
@@ -380,7 +384,7 @@ Node;AmplifyShaderEditor.RangedFloatNode;7;67.33415,-161.9377;Float;False;Proper
 Node;AmplifyShaderEditor.RangedFloatNode;8;72.10506,-78.44511;Float;False;Property;_Smoothness;Smoothness;4;0;Create;True;0;0;False;0;0;1;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;1;0,0;Float;False;False;2;Float;ASEMaterialInspector;0;1;ASETemplateShaders/LightWeight;1976390536c6c564abb90fe41f6ee334;0;1;ShadowCaster;0;False;False;True;Off;False;False;False;False;False;True;3;RenderPipeline=LightweightPipeline;RenderType=Opaque;Queue=Geometry;True;2;0;0;0;False;False;False;False;False;True;1;True;3;False;True;1;LightMode=ShadowCaster;False;0;0;0;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT3;0,0,0;False;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;2;0,0;Float;False;False;2;Float;ASEMaterialInspector;0;1;ASETemplateShaders/LightWeight;1976390536c6c564abb90fe41f6ee334;0;2;DepthOnly;0;False;False;True;Off;False;False;False;False;False;True;3;RenderPipeline=LightweightPipeline;RenderType=Opaque;Queue=Geometry;True;2;0;0;0;False;False;True;Back;True;False;False;False;False;False;True;1;False;False;True;1;LightMode=DepthOnly;False;0;0;0;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT3;0,0,0;False;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;0;376.6953,-263.6867;Float;False;True;2;Float;ASEMaterialInspector;0;1;SimpleColorMask;1976390536c6c564abb90fe41f6ee334;0;0;Base;9;False;False;True;Off;False;False;False;False;False;True;3;RenderPipeline=LightweightPipeline;RenderType=Opaque;Queue=Geometry;True;2;0;0;0;True;1;One;Zero;0;One;Zero;False;False;False;False;True;1;True;3;False;True;1;LightMode=LightweightForward;False;0;0;0;9;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT3;0,0,0;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;0;376.6953,-263.6867;Float;False;True;2;Float;ASEMaterialInspector;0;1;SimpleColorMask;1976390536c6c564abb90fe41f6ee334;0;0;Base;9;False;False;True;Off;False;False;False;False;False;True;3;RenderPipeline=LightweightPipeline;RenderType=Opaque;Queue=Geometry;True;2;0;0;0;True;1;One;Zero;0;One;Zero;False;False;False;False;True;1;True;3;False;True;1;LightMode=LightweightForward;False;0;2;multi_compile _ _SHADOWS_ENABLED;;0;9;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT3;0,0,0;False;0
 WireConnection;4;0;6;0
 WireConnection;4;1;5;0
 WireConnection;4;2;3;0
@@ -388,4 +392,4 @@ WireConnection;0;0;4;0
 WireConnection;0;3;7;0
 WireConnection;0;4;8;0
 ASEEND*/
-//CHKSM=79E48608B768EF6CFF0603547D49FFAAD2C69783
+//CHKSM=19DE792E448FE849F2386031CD3D4C53635BC226
