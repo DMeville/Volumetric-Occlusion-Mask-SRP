@@ -6,6 +6,8 @@
 ![screenshot](https://i.imgur.com/Jd7yXJ4.gif)
 ![screenshot](https://i.imgur.com/6XeEZDS.gif)
 
+**Edit 7/23/2018** - The system works _okay_ as is, but I'm not really satisfied. Will be looking into make a system based around mesh distance fields to achieve this effect.
+
 Using Unity 2018.2.0b7
 Package Manager: Lightweight Render Pipeline 1.1.10-preview and Post-processing 2.0.7-preview 
 
